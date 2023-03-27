@@ -13,32 +13,13 @@
   height: 100vh;
   width: 100%;
   scroll-margin-top:80px;
+  border: 2px solid rgba(112, 128, 144, 0.225);
   
    /* background effect */
-  background: linear-gradient(
-      45deg,
-      transparent 34%,
-      #e0e0e070 35%,
-      #e0e0e070 40%,
-      transparent 41%,
-      transparent 59%,
-      #e0e0e070 60%,
-      #e0e0e070 65%,
-      transparent 66%
-    ),
-    linear-gradient(
-      135deg,
-      transparent 34%,
-      #e0e0e070 35%,
-      #e0e0e070 40%,
-      transparent 41%,
-      transparent 59%,
-      #e0e0e070 60%,
-      #e0e0e070 65%,
-      transparent 66%
-    );
-  background-size: 6rem 6rem;
-  background-color: #ffffff;
+   background: linear-gradient(135deg, #e0e0e030 50%, transparent 0),
+   linear-gradient(-135deg, #e0e0e030 50%, transparent 0);
+ background-size: 10em 10em;
+ background-color: #ffffff;
 }
 
 .contact-content {

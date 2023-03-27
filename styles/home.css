@@ -13,8 +13,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #e0e0e070 50%, transparent 0),
-    linear-gradient(-135deg, #e0e0e070 50%, transparent 0);
+  background: linear-gradient(135deg, #e0e0e030 50%, transparent 0),
+    linear-gradient(-135deg, #e0e0e030 50%, transparent 0);
   background-size: 10em 10em;
   background-color: #ffffff;
   scroll-margin-top:80px;
