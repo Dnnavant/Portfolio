@@ -1,0 +1,63 @@
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, white 15%, transparent 15%),
+    linear-gradient(225deg, white 15%, transparent 15%),
+    linear-gradient(135deg, #e0e0e070 25%, transparent 25%),
+    linear-gradient(225deg, #e0e0e070 25%, transparent 25%),
+    linear-gradient(0deg, #e0e0e070 45%, transparent 25%);
+  background-size: 10em 10em;
+  background-color: white;
+  scroll-margin-top:80px;
+}
+
+.about-me-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
+  max-width: 80%;
+  border: 2px solid black;
+}
+
+.about-me-icons {
+  font-size: 2rem;
+}
+
+.about-me-skills-container {
+  text-align: center;
+}
+
+.about-me-skills-list {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+.about-me-skills {
+  border: 2px solid transparent;
+  background-color: slategrey;
+  box-shadow: 0px 1px 3px #666666;
+  border-radius: 20px;
+  height: 30px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
