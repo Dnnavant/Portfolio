@@ -61,6 +61,10 @@
   margin-bottom: 20px;
 }
 
+.icons a{
+  color: steelblue;
+}
+
 .icons i {
   margin-right: 10px;
 }
