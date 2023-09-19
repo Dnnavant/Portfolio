@@ -1,28 +1,39 @@
-import React from "react";
-import "./HomeSection.css";
+import React, { useState } from 'react';
+import './HomeSection.css';
 
 export default function HomeSection() {
-	return (
-		<div>
-			<section className="home-section" id="home">
-				<div className="home">
-					<div className="intro">
-						<h1>Hello, I'm Donnie</h1>
-						<h2>
-							As a seasoned professional, I'm eager to transition my career to
-							the world of a web developer. In doing so, I’d leverage my
-							previous skills and experiences in effective communication,
-							collaboration, problem-solving, adaptability, time management, and
-							professionalism to contribute to a developer role. My enrollment
-							in web development courses at DCI demonstrates my commitment to
-							this career change and skill enhancement.
-						</h2>
-						<button className="btn-1">
-							<a href="#projects">Projects</a>
-						</button>
-					</div>
-				</div>
-			</section>
-		</div>
-	);
+  const [isActive, setIsActive] = useState(false);
+
+  const handleBarClick = () => {
+    setIsActive(!isActive);
+  };
+
+  return (
+    <div>
+      {/* HamBurger Icon */}
+      <div className={`bars ${isActive ? 'active' : ''}`} id="nav-action" onClick={handleBarClick}>
+        <span className="bar"></span>
+      </div>
+
+      {/* Navbar Links */}
+      <nav id="nav" className={isActive ? 'visible' : ''}>
+        <ul>
+          <li className="shape-circle circle-one"><a href="#">Contact</a></li>
+          <li className="shape-circle circle-two"><a href="#">Projects</a></li>
+          <li className="shape-circle circle-three"><a href="#">About Me</a></li>
+          <li className="shape-circle circle-five"><a href="#">Home</a></li>
+        </ul>
+      </nav>
+
+      {/* Main Body Content */}
+      <article className="container">
+        <h1 className='title'>
+          DynamicDev<br />
+          Designs
+        </h1>
+        <h3 className='subTitle'>Creativity Is Limited Only If You Want It To Be!</h3>
+        <h2 className='subTitle'>Not Here!!</h2>        
+      </article>
+    </div>
+  );
 }
