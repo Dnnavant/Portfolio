@@ -24,6 +24,7 @@ export default function Navbar() {
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
+        {/* Social Media Icons */}
         <div className="navbar-right">
           <a href="https://www.linkedin.com/in/donnie-r-avant/" target='_blank'><i class="fa-brands fa-linkedin"></i></a>
           <a href="https://github.com/Dnnavant" target='_blank'><i class="fa-brands fa-github"></i></a>
