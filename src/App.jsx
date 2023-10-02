@@ -5,20 +5,26 @@ import Introduction from "./Components/Introduction/Introduction";
 import HomeSection from "./Components/HomeSection/HomeSection";
 import Navbar from "./Components/Navbar/Navbar";
 import ProjectsSection from "./Components/ProjectsSection/ProjectsSection";
+import ProfileCard from "./Components/ProfileCard/ProfileCard";
 function App() {
+	return (
+		<div>
+			<Navbar />
+			
 
-  return (
-      <div>
-        <Navbar/>
-        <HomeSection/>
-        <Introduction/>
-        <AboutMe/>
-        <ProjectsSection/>
-        <ContactMe/>
-        <Footer/>
-      </div>
-        
-  );
+			<div>
+			{/* <Introduction /> */}
+			<HomeSection />
+			</div>
+
+				<ProfileCard />
+
+			<AboutMe />
+			<ProjectsSection />
+			<ContactMe />
+			<Footer />
+		</div>
+	);
 }
 
 export default App;

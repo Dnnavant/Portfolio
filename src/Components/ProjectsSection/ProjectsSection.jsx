@@ -8,7 +8,7 @@ export default function ProjectsSection() {
         <div className="card-container">
           <div className="card">
             <div className="card-image">
-              <img src="/images/demo3.jpg" alt="Card image" />
+              <img src="./images/demo3.jpg" alt="Card image" />
               <div className="button-container">
                 <a className="button" href="https://pkfrom.github.io/404/404.html">
                   View Site
