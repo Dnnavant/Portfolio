@@ -1,9 +1,3 @@
-/* General styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 /* Navbar Styling */
 .navbar-section {
@@ -34,7 +28,8 @@
 }
 
 /* Logo picture styling */
-.navbar-logo-pic {
+.navbar-logo {
+  color: whitesmoke;
   height: 80px;
   margin-left: 100px;
   margin-top: 5px;
@@ -63,7 +58,7 @@
   padding: 20px;
 }
 .navbar-list a {
-  color: black;
+  color: whitesmoke;
   font-size: 1.5rem;
   text-decoration: none;
 }
@@ -78,7 +73,7 @@
   font-size: 1.5rem;
 }
 
-.navbar-logo-pic:hover {
+.navbar-logo:hover {
   transition: font-size 0.3 ease-in-out;
   height: 80px;
 }

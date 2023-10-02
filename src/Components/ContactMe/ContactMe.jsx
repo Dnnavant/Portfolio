@@ -13,34 +13,32 @@ export default function ContactMe() {
         </p>
       </div>
       <div className="form">
-        <form action="/action_page.php" method="post">
-          <label htmlFor="name">Name:</label>
+        <form>
+          <label className='form-name'>Name:</label>
           <input
             type="text"
             id="name"
             name="name"
             placeholder="Your Name"
-            required
-          />
+            required/>
 
-          <label htmlFor="email">Email:</label>
+          <label className='form-email'>Email:</label>
           <input
             type="email"
             id="email"
             name="email"
             placeholder="Your Email"
-            required
-          />
+            required/>
 
-          <label htmlFor="message">Message:</label>
-          <textarea
+          <label className='form-message'>Message:</label>
+          <textarea className='form-textarea'
             id="message"
             name="message"
             placeholder="Your Message"
-            required
-          ></textarea>
+            required>
+          </textarea>
 
-          <input type="submit" value="Submit" style={{ display: 'none' }} />
+          <input className='submit' type="submit" value="Submit"/>§
         </form>
       </div>
     </div>
