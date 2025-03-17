@@ -14,13 +14,12 @@ function App() {
 		<Router>
 			<div className="app-container h-screen bg-[#111111] text-white flex flex-col">
 				<Navbar />
-				<div className="content-container max-w-3xl mx-auto px-4 h-[calc(100vh-80px)] mt-20 flex-grow">
+				<div className="content-container w-full h-[calc(100vh-80px)] mt-20 flex-grow">
 					<Routes>
 						<Route
 							path="/"
 							element={
-								<div className="home-wrapper h-full overflow-y-auto py-6">
-									<HomeSection />
+								<div className="home-wrapper h-full overflow-y-auto">
 									<Introduction />
 									<ProfileCard />
 								</div>
@@ -29,7 +28,14 @@ function App() {
 						<Route
 							path="/projects"
 							element={
-								<div className="projects-section h-full overflow-y-auto py-6">
+								<div
+									className="projects-section h-full overflow-y-auto"
+									style={{
+										paddingTop: "1rem",
+										paddingLeft: "1rem",
+										paddingRight: "1rem",
+									}}
+								>
 									<ProjectsSection />
 								</div>
 							}
@@ -37,7 +43,14 @@ function App() {
 						<Route
 							path="/about"
 							element={
-								<div className="about-section h-full overflow-y-auto py-6">
+								<div
+									className="about-section h-full overflow-y-auto"
+									style={{
+										paddingTop: "1rem",
+										paddingLeft: "1rem",
+										paddingRight: "1rem",
+									}}
+								>
 									<AboutMe />
 								</div>
 							}
@@ -45,7 +58,14 @@ function App() {
 						<Route
 							path="/contact"
 							element={
-								<div className="contact-section h-full overflow-y-auto py-6">
+								<div
+									className="contact-section h-full overflow-y-auto"
+									style={{
+										paddingTop: "1rem",
+										paddingLeft: "1rem",
+										paddingRight: "1rem",
+									}}
+								>
 									<ContactMe />
 								</div>
 							}

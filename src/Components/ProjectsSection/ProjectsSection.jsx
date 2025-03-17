@@ -26,6 +26,9 @@ function ProjectsSection() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}
+			style={{
+				paddingTop: "2rem", // Add padding to ensure content isn't hidden behind navbar
+			}}
 		>
 			<h2
 				style={{
@@ -48,42 +51,49 @@ function ProjectsSection() {
 							borderRadius: "0.5rem",
 							padding: "1.5rem",
 							transition: "border-color 0.3s ease",
+							height: "50vh", // Set each project to 50vh height
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-between",
+							overflow: "auto", // Add scrolling for content that exceeds the height
 						}}
 					>
-						<h3
-							style={{
-								fontSize: "1.25rem",
-								fontWeight: "600",
-								marginBottom: "0.5rem",
-							}}
-						>
-							{project.title}
-						</h3>
-						<p style={{ color: "#9ca3af", marginBottom: "1rem" }}>
-							{project.description}
-						</p>
-						<div
-							style={{
-								display: "flex",
-								flexWrap: "wrap",
-								gap: "0.5rem",
-								marginBottom: "1rem",
-							}}
-						>
-							{project.tech.map((tech) => (
-								<span
-									key={tech}
-									style={{
-										padding: "0.25rem 0.75rem",
-										fontSize: "0.875rem",
-										backgroundColor: "#1f2937",
-										borderRadius: "9999px",
-										color: "#d1d5db",
-									}}
-								>
-									{tech}
-								</span>
-							))}
+						<div>
+							<h3
+								style={{
+									fontSize: "1.25rem",
+									fontWeight: "600",
+									marginBottom: "0.5rem",
+								}}
+							>
+								{project.title}
+							</h3>
+							<p style={{ color: "#9ca3af", marginBottom: "1rem" }}>
+								{project.description}
+							</p>
+							<div
+								style={{
+									display: "flex",
+									flexWrap: "wrap",
+									gap: "0.5rem",
+									marginBottom: "1rem",
+								}}
+							>
+								{project.tech.map((tech) => (
+									<span
+										key={tech}
+										style={{
+											padding: "0.25rem 0.75rem",
+											fontSize: "0.875rem",
+											backgroundColor: "#1f2937",
+											borderRadius: "9999px",
+											color: "#d1d5db",
+										}}
+									>
+										{tech}
+									</span>
+								))}
+							</div>
 						</div>
 						<div style={{ display: "flex", gap: "1rem" }}>
 							<a
