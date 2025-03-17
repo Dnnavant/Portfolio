@@ -1,83 +1,101 @@
-import React from "react";
-import "./AboutMe.css";
+import { motion } from "framer-motion";
 
-export default function AboutMe() {
+function AboutMe() {
+	const skills = [
+		"JavaScript",
+		"React",
+		"Node.js",
+		"Tailwind CSS",
+		"TypeScript",
+		"Next.js",
+		// Add more skills as needed
+	];
+
 	return (
-		<div className="aboutMe-section">
-			<div className="aboutMe-container1">
-				<div className="aboutMe-box1">
-					{/* Content for Box 1 */}
-					<h2>About me:</h2>
-					<p className="aboutMe-text">
-						My prior education and professional experiences have shaped me to be
-						skillful in many fields while retaining a passion in the tech world.
-						This passion has influenced me to pursue a career change in which
-						led me to enroll at DCI (Digital Career Institute) to become a
-						Full-Stack Web Developer. Gaining these skills have changed my
-						desired thoughts in tech from <strong>“I wish”</strong> to
-						<strong>“I will ”create</strong>.
-					</p>
-					<br />
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 0.5 }}
+		>
+			<div className="max-w-2xl mx-auto">
+				<motion.h2
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5 }}
+					className="text-3xl font-bold mb-8"
+				>
+					About Me
+				</motion.h2>
 
-					<p className="aboutMe-text">
-						I'm open to job opportunities where I can contribute, learn, and
-						grow. If you have a good opportunity that matches my skills and
-						experience, then don't hesitate to contact me.
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.1 }}
+					className="prose prose-invert mb-12"
+				>
+					<p className="text-gray-400 mb-6">
+						I'm a passionate web developer with a focus on creating clean,
+						user-friendly applications. With a background in both front-end and
+						back-end development, I enjoy bringing ideas to life through code.
 					</p>
-				</div>
-			</div>
-			<div className="aboutMe-container2">
-				<div className="aboutMe-box2">
-					{/* Content for Box 2 */}
-					<h2>Developer Skills</h2>
-					<div>
-						<ul>
-							<p>Front-End:</p>
-							<ul>
-								<li>HTML / CSS</li>
-								<li>JavaScript</li>
-								<li>React</li>
-								<li>Bootstrap</li>
-								<li>TypeScript</li>
-								<li>Responsive Design</li>
-							</ul>
-							<p>Back-End:</p>
-							<ul>
-								<li>RESTful API’s</li>
-								<li>Node.js / Express</li>
-								<li>MongoDB</li>
-							</ul>
-							<p>Version Control:</p>
-							<ul>
-								<li>Git</li>
-							</ul>
-						</ul>
-					</div>
-				</div>
+					<p className="text-gray-400 mb-6">
+						When I'm not coding, you can find me exploring new technologies,
+						contributing to open-source projects, or creating music. I believe
+						in continuous learning and sharing knowledge with the developer
+						community.
+					</p>
+				</motion.div>
 
-				<div className="aboutMe-box3">
-					{/* Content for Box 3 */}
-					<h2>Additional Skills:</h2>
-					<div>
-						<ul>
-							<ul>
-								<li>Social Media Marketing</li>
-								<li>Data Entry</li>
-								<li>Technical Support</li>
-							</ul>
-							<li>Design Skills / Tools:</li>
-							<ul>
-								<li>UX/UI Design</li>
-								<li>Graphic Design</li>
-								<li>Photoshop</li>
-								<li>Affinity Photo</li>
-								<li>Figma</li>
-								<li>Canva</li>
-							</ul>
-						</ul>
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.2 }}
+				>
+					<h3 className="text-xl font-semibold mb-4">
+						Technologies I work with:
+					</h3>
+					<div className="flex flex-wrap gap-2">
+						{skills.map((skill) => (
+							<span
+								key={skill}
+								className="px-3 py-1 bg-gray-800 rounded-full text-gray-300 text-sm"
+							>
+								{skill}
+							</span>
+						))}
 					</div>
-				</div>
+				</motion.div>
+
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.3 }}
+					className="mt-12"
+				>
+					<h3 className="text-xl font-semibold mb-4">Let's connect</h3>
+					<p className="text-gray-400 mb-6">
+						I'm always interested in hearing about new projects and
+						opportunities. Feel free to reach out if you'd like to collaborate
+						or just chat!
+					</p>
+					<div className="flex space-x-4">
+						<a
+							href="/contact"
+							className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+						>
+							Get in Touch
+						</a>
+						<a
+							href="/projects"
+							className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition-colors font-medium"
+						>
+							View Projects
+						</a>
+					</div>
+				</motion.div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
+
+export default AboutMe;
