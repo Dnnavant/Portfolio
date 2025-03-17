@@ -4,99 +4,55 @@ import Navbar from "./Components/Navbar/Navbar";
 import AboutMe from "./Components/AboutMe/AboutMe";
 import ContactMe from "./Components/ContactMe/ContactMe";
 import ProjectsSection from "./Components/ProjectsSection/ProjectsSection";
+import HomeSection from "./Components/HomeSection/HomeSection";
+import Introduction from "./Components/Introduction/Introduction";
+import ProfileCard from "./Components/ProfileCard/ProfileCard";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
 	return (
 		<Router>
-			<div className="min-h-screen bg-[#111111] text-white">
+			<div className="app-container h-screen bg-[#111111] text-white flex flex-col">
 				<Navbar />
-				<div className="max-w-3xl mx-auto px-4 pt-28 pb-16">
+				<div className="content-container max-w-3xl mx-auto px-4 h-[calc(100vh-80px)] mt-20 flex-grow">
 					<Routes>
 						<Route
 							path="/"
 							element={
-								<>
-									<motion.div
-										initial={{ opacity: 0, y: 20 }}
-										animate={{ opacity: 1, y: 0 }}
-										transition={{ duration: 0.8 }}
-										className="mb-24"
-									>
-										<h1 className="text-4xl font-bold mb-6">Hi, I'm Donnie!</h1>
-										<p className="text-xl text-gray-400 mb-8 max-w-2xl">
-											I build custom WEB solutions, write about DEV and produce
-											music as a hobby.
-										</p>
-										<div className="flex space-x-4">
-											<Link
-												to="/projects"
-												className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium"
-											>
-												My Projects
-											</Link>
-											<Link
-												to="/contact"
-												className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition-colors font-medium"
-											>
-												Get in Touch
-											</Link>
-										</div>
-									</motion.div>
-
-									<motion.div
-										initial={{ opacity: 0, scale: 0.9 }}
-										animate={{ opacity: 1, scale: 1 }}
-										transition={{ duration: 0.8 }}
-										className="mb-16 flex justify-center"
-									>
-										<div className="w-32 h-32 rounded-full overflow-hidden">
-											<img
-												src="/your-profile-image.jpg"
-												alt="Profile"
-												className="w-full h-full object-cover"
-											/>
-										</div>
-									</motion.div>
-
-									<motion.div
-										initial={{ opacity: 0, y: 20 }}
-										animate={{ opacity: 1, y: 0 }}
-										transition={{ duration: 0.8, delay: 0.2 }}
-										className="flex justify-center space-x-6"
-									>
-										<a
-											href="https://twitter.com" // TODO: Add your Twitter profile URL
-											target="_blank"
-											rel="noopener noreferrer"
-											className="text-gray-400 hover:text-white transition-colors"
-										>
-											twitter
-										</a>
-										<a
-											href="https://github.com" // TODO: Add your GitHub profile URL
-											target="_blank"
-											rel="noopener noreferrer"
-											className="text-gray-400 hover:text-white transition-colors"
-										>
-											github
-										</a>
-										<a
-											href="https://linkedin.com" // TODO: Add your LinkedIn profile URL
-											target="_blank"
-											rel="noopener noreferrer"
-											className="text-gray-400 hover:text-white transition-colors"
-										>
-											linkedin
-										</a>
-									</motion.div>
-								</>
+								<div className="home-wrapper h-full overflow-y-auto py-6">
+									<HomeSection />
+									<Introduction />
+									<ProfileCard />
+								</div>
 							}
 						/>
-						<Route path="/projects" element={<ProjectsSection />} />
-						<Route path="/about" element={<AboutMe />} />
-						<Route path="/contact" element={<ContactMe />} />
+						<Route
+							path="/projects"
+							element={
+								<div className="projects-section h-full overflow-y-auto py-6">
+									<ProjectsSection />
+								</div>
+							}
+						/>
+						<Route
+							path="/about"
+							element={
+								<div className="about-section h-full overflow-y-auto py-6">
+									<AboutMe />
+								</div>
+							}
+						/>
+						<Route
+							path="/contact"
+							element={
+								<div className="contact-section h-full overflow-y-auto py-6">
+									<ContactMe />
+								</div>
+							}
+						/>
 					</Routes>
 				</div>
+				<Footer />
 			</div>
 		</Router>
 	);

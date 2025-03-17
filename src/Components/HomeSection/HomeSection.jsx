@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './HomeSection.css';
 
 export default function HomeSection() {
   const [isActive, setIsActive] = useState(false);
@@ -28,11 +27,9 @@ export default function HomeSection() {
       {/* Main Body Content */}
       <article className="container">
         <h1 className='title'>
-          DynamicDev<br />
-          Designs
+          DA Developer<br />
         </h1>
         <h3 className='subTitle'>Creativity Is Limited Only If You Want It To Be!</h3>
-        <h2 className='subTitle'>Not Here!!</h2>        
       </article>
     </div>
   );

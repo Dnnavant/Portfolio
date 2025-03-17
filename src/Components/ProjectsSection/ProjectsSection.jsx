@@ -27,34 +27,70 @@ function ProjectsSection() {
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}
 		>
-			<h2 className="text-3xl font-bold mb-8">Projects</h2>
-			<div className="space-y-12">
+			<h2
+				style={{
+					fontSize: "1.875rem",
+					fontWeight: "bold",
+					marginBottom: "2rem",
+				}}
+			>
+				Projects
+			</h2>
+			<div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
 				{projects.map((project, index) => (
 					<motion.div
 						key={project.title}
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: index * 0.1 }}
-						className="border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors"
+						style={{
+							border: "1px solid #374151",
+							borderRadius: "0.5rem",
+							padding: "1.5rem",
+							transition: "border-color 0.3s ease",
+						}}
 					>
-						<h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-						<p className="text-gray-400 mb-4">{project.description}</p>
-						<div className="flex flex-wrap gap-2 mb-4">
+						<h3
+							style={{
+								fontSize: "1.25rem",
+								fontWeight: "600",
+								marginBottom: "0.5rem",
+							}}
+						>
+							{project.title}
+						</h3>
+						<p style={{ color: "#9ca3af", marginBottom: "1rem" }}>
+							{project.description}
+						</p>
+						<div
+							style={{
+								display: "flex",
+								flexWrap: "wrap",
+								gap: "0.5rem",
+								marginBottom: "1rem",
+							}}
+						>
 							{project.tech.map((tech) => (
 								<span
 									key={tech}
-									className="px-3 py-1 text-sm bg-gray-800 rounded-full text-gray-300"
+									style={{
+										padding: "0.25rem 0.75rem",
+										fontSize: "0.875rem",
+										backgroundColor: "#1f2937",
+										borderRadius: "9999px",
+										color: "#d1d5db",
+									}}
 								>
 									{tech}
 								</span>
 							))}
 						</div>
-						<div className="flex space-x-4">
+						<div style={{ display: "flex", gap: "1rem" }}>
 							<a
 								href={project.link}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-gray-400 hover:text-white transition-colors"
+								style={{ color: "#9ca3af", textDecoration: "none" }}
 							>
 								github ↗
 							</a>
@@ -62,7 +98,7 @@ function ProjectsSection() {
 								href={project.live}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-gray-400 hover:text-white transition-colors"
+								style={{ color: "#9ca3af", textDecoration: "none" }}
 							>
 								live ↗
 							</a>

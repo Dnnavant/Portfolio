@@ -26,20 +26,39 @@ function ContactMe() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}
-			className="max-w-2xl mx-auto"
+			style={{ maxWidth: "42rem", margin: "0 auto" }}
 		>
-			<h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
-			<p className="text-gray-400 mb-8">
+			<h2
+				style={{
+					fontSize: "1.875rem",
+					fontWeight: "bold",
+					marginBottom: "2rem",
+				}}
+			>
+				Get in Touch
+			</h2>
+			<p style={{ color: "#9ca3af", marginBottom: "2rem" }}>
 				Have a question or want to work together? Feel free to reach out!
 			</p>
 
-			<form onSubmit={handleSubmit} className="space-y-6">
+			<form
+				onSubmit={handleSubmit}
+				style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
+			>
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5, delay: 0.1 }}
 				>
-					<label htmlFor="name" className="block text-sm font-medium mb-2">
+					<label
+						htmlFor="name"
+						style={{
+							display: "block",
+							fontSize: "0.875rem",
+							fontWeight: "500",
+							marginBottom: "0.5rem",
+						}}
+					>
 						Name
 					</label>
 					<input
@@ -49,7 +68,15 @@ function ContactMe() {
 						value={formData.name}
 						onChange={handleChange}
 						required
-						className="w-full px-4 py-2 bg-gray-900 border border-gray-800 rounded-lg focus:outline-none focus:border-gray-600 text-white"
+						style={{
+							width: "100%",
+							padding: "0.5rem 1rem",
+							backgroundColor: "#1f2937",
+							border: "1px solid #374151",
+							borderRadius: "0.5rem",
+							color: "white",
+							outline: "none",
+						}}
 					/>
 				</motion.div>
 
@@ -58,7 +85,15 @@ function ContactMe() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5, delay: 0.2 }}
 				>
-					<label htmlFor="email" className="block text-sm font-medium mb-2">
+					<label
+						htmlFor="email"
+						style={{
+							display: "block",
+							fontSize: "0.875rem",
+							fontWeight: "500",
+							marginBottom: "0.5rem",
+						}}
+					>
 						Email
 					</label>
 					<input
@@ -68,7 +103,15 @@ function ContactMe() {
 						value={formData.email}
 						onChange={handleChange}
 						required
-						className="w-full px-4 py-2 bg-gray-900 border border-gray-800 rounded-lg focus:outline-none focus:border-gray-600 text-white"
+						style={{
+							width: "100%",
+							padding: "0.5rem 1rem",
+							backgroundColor: "#1f2937",
+							border: "1px solid #374151",
+							borderRadius: "0.5rem",
+							color: "white",
+							outline: "none",
+						}}
 					/>
 				</motion.div>
 
@@ -77,7 +120,15 @@ function ContactMe() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5, delay: 0.3 }}
 				>
-					<label htmlFor="message" className="block text-sm font-medium mb-2">
+					<label
+						htmlFor="message"
+						style={{
+							display: "block",
+							fontSize: "0.875rem",
+							fontWeight: "500",
+							marginBottom: "0.5rem",
+						}}
+					>
 						Message
 					</label>
 					<textarea
@@ -87,7 +138,16 @@ function ContactMe() {
 						onChange={handleChange}
 						required
 						rows="4"
-						className="w-full px-4 py-2 bg-gray-900 border border-gray-800 rounded-lg focus:outline-none focus:border-gray-600 text-white resize-none"
+						style={{
+							width: "100%",
+							padding: "0.5rem 1rem",
+							backgroundColor: "#1f2937",
+							border: "1px solid #374151",
+							borderRadius: "0.5rem",
+							color: "white",
+							outline: "none",
+							resize: "none",
+						}}
 					></textarea>
 				</motion.div>
 
@@ -98,7 +158,16 @@ function ContactMe() {
 				>
 					<button
 						type="submit"
-						className="w-full bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+						style={{
+							width: "100%",
+							backgroundColor: "white",
+							color: "black",
+							padding: "0.75rem 1.5rem",
+							borderRadius: "0.5rem",
+							fontWeight: "500",
+							border: "none",
+							cursor: "pointer",
+						}}
 					>
 						Send Message
 					</button>
@@ -109,12 +178,12 @@ function ContactMe() {
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5, delay: 0.5 }}
-				className="mt-12 text-center text-gray-400"
+				style={{ marginTop: "3rem", textAlign: "center", color: "#9ca3af" }}
 			>
 				<p>Or reach out directly via email:</p>
 				<a
 					href="mailto:your.email@example.com"
-					className="text-white hover:text-gray-300 transition-colors"
+					style={{ color: "white", textDecoration: "none" }}
 				>
 					your.email@example.com
 				</a>

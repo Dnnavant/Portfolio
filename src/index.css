@@ -6,15 +6,11 @@
 
 @layer base {
 	body {
-		@apply bg-[#111111] text-white font-['Inter'];
+		background-color: #111111;
+		color: white;
+		font-family: "Inter", system-ui, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-	}
-}
-
-@layer components {
-	.container {
-		@apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
 	}
 }
 
