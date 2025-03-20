@@ -1,121 +1,78 @@
-import { Link } from "react-router-dom";
+import "./Navbar.css";
 
+// Create a pure HTML navbar
 function Navbar() {
 	return (
-		<nav
-			style={{
-				position: "fixed",
-				top: 0,
-				left: 0,
-				right: 0,
-				width: "100vw",
-				backgroundColor: "#111111",
-				borderBottom: "1px solid #333",
-				padding: "1rem",
-				zIndex: 50,
-			}}
-		>
-			<div
-				style={{
-					width: "100%",
-					display: "flex",
-					justifyContent: "space-between",
-					alignItems: "center",
-				}}
-			>
-				<div style={{ width: "20%" }}>
-					<Link
-						to="/"
-						style={{
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-						}}
-					>
-						<div
-							style={{
-								width: "80px",
-								height: "80px",
-								borderRadius: "50%",
-								overflow: "hidden",
-								boxShadow: "0 0 15px rgba(0, 0, 0, 0.4)",
-								transition: "transform 0.3s ease",
-							}}
-							onMouseEnter={(e) =>
-								(e.currentTarget.style.transform = "scale(1.1)")
-							}
-							onMouseLeave={(e) =>
-								(e.currentTarget.style.transform = "scale(1)")
-							}
-						>
+		<nav className="navbar">
+			<div className="navbar-container">
+				{/* Logo */}
+				<div className="logo-container">
+					<a href="/" className="logo-link">
+						<div className="logo-wrapper">
 							<img
 								src="/images/DA_Developer_LOGO.png"
 								alt="DA Developer Logo"
-								style={{
-									width: "100%",
-									height: "100%",
-									objectFit: "cover",
-									objectPosition: "center",
-									transform: "scale(1.15)", // Zoom in on the logo content
-								}}
+								className="logo-image"
 							/>
 						</div>
-					</Link>
+					</a>
 				</div>
-				<div
-					style={{
-						display: "flex",
-						justifyContent: "center",
-						flex: 1,
+
+				{/* Mobile menu button */}
+				<button
+					className="mobile-menu-button"
+					id="mobile-menu-toggle"
+					onClick={() => {
+						const navLinks = document.getElementById("nav-links");
+						if (navLinks) {
+							navLinks.classList.toggle("open");
+						}
 					}}
 				>
-					<div
-						style={{
-							display: "flex",
-							justifyContent: "space-evenly",
-							width: "100%",
-							maxWidth: "600px",
-						}}
-					>
-						<Link
-							to="/projects"
-							style={{
-								color: "white",
-								textDecoration: "none",
-								fontSize: "1.125rem",
-								fontWeight: 500,
-								padding: "0.5rem 1rem",
+					<i className="fa-solid fa-bars"></i>
+				</button>
+
+				{/* Navigation links */}
+				<div className="nav-links-container" id="nav-links">
+					<div className="nav-links-wrapper">
+						<a
+							href="/projects"
+							className="nav-link"
+							onClick={() => {
+								const navLinks = document.getElementById("nav-links");
+								if (navLinks) {
+									navLinks.classList.remove("open");
+								}
 							}}
 						>
 							Projects
-						</Link>
-						<Link
-							to="/about"
-							style={{
-								color: "white",
-								textDecoration: "none",
-								fontSize: "1.125rem",
-								fontWeight: 500,
-								padding: "0.5rem 1rem",
+						</a>
+						<a
+							href="/about"
+							className="nav-link"
+							onClick={() => {
+								const navLinks = document.getElementById("nav-links");
+								if (navLinks) {
+									navLinks.classList.remove("open");
+								}
 							}}
 						>
 							About
-						</Link>
-						<Link
-							to="/contact"
-							style={{
-								color: "white",
-								textDecoration: "none",
-								fontSize: "1.125rem",
-								fontWeight: 500,
-								padding: "0.5rem 1rem",
+						</a>
+						<a
+							href="/contact"
+							className="nav-link"
+							onClick={() => {
+								const navLinks = document.getElementById("nav-links");
+								if (navLinks) {
+									navLinks.classList.remove("open");
+								}
 							}}
 						>
 							Contact
-						</Link>
+						</a>
 					</div>
 				</div>
-				<div style={{ width: "20%" }}></div> {/* Spacer for balance */}
 			</div>
 		</nav>
 	);

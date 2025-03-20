@@ -1,0 +1,113 @@
+.about-container {
+	padding-top: 7.5rem;
+	padding-bottom: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(100vh - 80px);
+}
+
+.about-card {
+	max-width: 42rem;
+	width: 100%;
+	height: 50vh;
+	background-color: #1f2937;
+	border-radius: 12px;
+	padding: 2.5rem;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+		0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	margin: 0 auto;
+	transition: transform 0.3s ease;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.about-card:hover {
+	transform: translateY(-5px);
+}
+
+.about-title {
+	font-size: 1.875rem;
+	font-weight: bold;
+	margin-bottom: 1.5rem;
+	background: linear-gradient(90deg, #ffffff, #10b981);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.about-content {
+	overflow-y: auto;
+	flex: 1;
+}
+
+.about-section {
+	margin-bottom: 2rem;
+}
+
+.about-text {
+	color: #d1d5db;
+	margin-bottom: 1.5rem;
+	line-height: 1.75;
+}
+
+.about-subtitle {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: #e5e7eb;
+}
+
+.skills-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-bottom: 2rem;
+}
+
+.skill-tag {
+	padding: 0.25rem 0.75rem;
+	background-color: #374151;
+	border-radius: 9999px;
+	color: #d1d5db;
+	font-size: 0.875rem;
+}
+
+.buttons-container {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.primary-button {
+	background-color: #10b981;
+	color: white;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	font-weight: 500;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-button {
+	border: 1px solid #d1d5db;
+	color: #d1d5db;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	font-weight: 500;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	border-color: #10b981;
+	color: #10b981;
+}
