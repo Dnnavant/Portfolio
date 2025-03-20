@@ -1,7 +1,1 @@
-As a seasoned professional, I'm eager to transition my career to
-the world of a web developer. In doing so, I’d leverage my
-previous skills and experiences in effective communication,
-collaboration, problem-solving, adaptability, time management, and
-professionalism to contribute to a developer role. My enrollment
-in web development courses at DCI demonstrates my commitment to
-this career change and skill enhancement.
+"While my professional background spans [mention your previous field/industry], I'm driven to transition into web development. I understand this means starting as a junior developer, and I'm excited to embrace the learning curve. My established skills in effective communication, collaboration, problem-solving, adaptability, time management, and professionalism will be valuable assets as I navigate this new path. My enrollment in web development courses at DCI underscores my commitment to mastering the necessary technical skills. Though I'm new to the technical aspects of web development, I'm eager to contribute my creativity and learn from experienced colleagues, bringing a fresh perspective to the team."
