@@ -1,4 +1,4 @@
-.footer-section {
+.footer {
 	background-color: #111111;
 	color: #f3f4f6;
 	padding: 2rem 1rem 1rem;
@@ -18,21 +18,21 @@
 	margin-bottom: 1.5rem;
 }
 
-.footer-content h4 {
+.footer-title {
 	font-size: 1.25rem;
 	font-weight: 600;
 	margin-bottom: 0.75rem;
 	color: #10b981;
 }
 
-.footer-content p {
+.footer-quote {
 	max-width: 600px;
 	color: #9ca3af;
 	line-height: 1.6;
 	font-style: italic;
 }
 
-.footer-section hr {
+.footer-divider {
 	border: none;
 	height: 1px;
 	background-color: #333;
@@ -47,15 +47,15 @@
 }
 
 @media (max-width: 640px) {
-	.footer-section {
+	.footer {
 		padding: 1.5rem 1rem 1rem;
 	}
 
-	.footer-content h4 {
+	.footer-title {
 		font-size: 1.125rem;
 	}
 
-	.footer-content p {
+	.footer-quote {
 		font-size: 0.875rem;
 	}
 }

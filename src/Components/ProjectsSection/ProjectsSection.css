@@ -1,0 +1,72 @@
+.projects-container {
+	padding-top: 2rem;
+}
+
+.projects-heading {
+	font-size: 1.875rem;
+	font-weight: bold;
+	margin-bottom: 2rem;
+}
+
+.projects-list {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.project-card {
+	border: 1px solid #374151;
+	border-radius: 0.5rem;
+	padding: 1.5rem;
+	transition: border-color 0.3s ease;
+	height: 50vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: auto;
+}
+
+.project-card:hover {
+	border-color: #10b981;
+}
+
+.project-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+.project-description {
+	color: #9ca3af;
+	margin-bottom: 1rem;
+}
+
+.project-tech-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.project-tech-tag {
+	padding: 0.25rem 0.75rem;
+	font-size: 0.875rem;
+	background-color: #1f2937;
+	border-radius: 9999px;
+	color: #d1d5db;
+}
+
+.project-links {
+	display: flex;
+	gap: 1rem;
+}
+
+.project-link {
+	color: #9ca3af;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.project-link:hover {
+	color: #10b981;
+}
