@@ -1,38 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import "./styles/variables.css";
 
-@layer base {
-	body {
-		@apply bg-background-dark text-text-primary;
-		font-family: "Inter", system-ui, sans-serif;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-}
-
-@layer components {
-	.btn {
-		@apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
-	}
-
-	.btn-primary {
-		@apply bg-primary text-white hover:bg-primary-hover;
-	}
-
-	.btn-secondary {
-		@apply bg-secondary text-white hover:bg-secondary-hover;
-	}
-}
-
-@layer utilities {
-	.text-gradient {
-		@apply bg-gradient-to-r from-white to-primary bg-clip-text text-transparent;
-	}
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -56,9 +27,4 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
-
-/* Remove background image */
-body {
-	background-image: none;
 }
