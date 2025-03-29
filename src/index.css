@@ -1,11 +1,20 @@
+/* ==========================================================================
+   Main CSS File
+   ========================================================================== */
+
+/* External Dependencies
+   ========================================================================== */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import "./styles/variables.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind CSS Directives
+   ========================================================================== */
+@tailwind base; /* Base styles and CSS reset */
+@tailwind components; /* Component classes */
+@tailwind utilities; /* Utility classes */
 
-/* Custom scrollbar */
+/* Custom Scrollbar Styles
+   ========================================================================== */
 ::-webkit-scrollbar {
 	width: 6px;
 }
@@ -23,6 +32,8 @@
 	background: #444444;
 }
 
+/* CSS Reset
+   ========================================================================== */
 * {
 	margin: 0;
 	padding: 0;
