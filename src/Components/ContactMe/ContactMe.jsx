@@ -1,19 +1,33 @@
 import "./ContactMe.css";
+import { useState } from "react";
 
 // Contact form component
 function ContactMe() {
-	// Handle form submission
-	function handleSubmit(event) {
-		event.preventDefault();
-		const formData = {
-			name: document.getElementById("name").value,
-			email: document.getElementById("email").value,
-			message: document.getElementById("message").value,
-		};
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		message: "",
+	});
 
-		// Add your form submission logic here
-		console.log(formData);
-	}
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prev) => ({
+			...prev,
+			[name]: value,
+		}));
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			// Add your form submission logic here
+			console.log(formData);
+			// Reset form after successful submission
+			setFormData({ name: "", email: "", message: "" });
+		} catch (error) {
+			console.error("Error submitting form:", error);
+		}
+	};
 
 	return (
 		<div className="contact-container">
@@ -31,6 +45,8 @@ function ContactMe() {
 						type="text"
 						id="name"
 						name="name"
+						value={formData.name}
+						onChange={handleChange}
 						required
 						className="form-input"
 					/>
@@ -42,6 +58,8 @@ function ContactMe() {
 						type="email"
 						id="email"
 						name="email"
+						value={formData.email}
+						onChange={handleChange}
 						required
 						className="form-input"
 					/>
@@ -52,6 +70,8 @@ function ContactMe() {
 					<textarea
 						id="message"
 						name="message"
+						value={formData.message}
+						onChange={handleChange}
 						required
 						rows="4"
 						className="form-textarea"

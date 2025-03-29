@@ -1,24 +1,24 @@
 .projects-container {
-	padding-top: 2rem;
+	padding-top: var(--spacing-lg);
 }
 
 .projects-heading {
-	font-size: 1.875rem;
+	font-size: var(--text-2xl);
 	font-weight: bold;
-	margin-bottom: 2rem;
+	margin-bottom: var(--spacing-lg);
 }
 
 .projects-list {
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
+	gap: var(--spacing-xl);
 }
 
 .project-card {
-	border: 1px solid #374151;
-	border-radius: 0.5rem;
-	padding: 1.5rem;
-	transition: border-color 0.3s ease;
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-md);
+	transition: border-color var(--transition-normal);
 	height: 50vh;
 	display: flex;
 	flex-direction: column;
@@ -27,46 +27,46 @@
 }
 
 .project-card:hover {
-	border-color: #10b981;
+	border-color: var(--primary-color);
 }
 
 .project-title {
-	font-size: 1.25rem;
+	font-size: var(--text-lg);
 	font-weight: 600;
-	margin-bottom: 0.5rem;
+	margin-bottom: var(--spacing-xs);
 }
 
 .project-description {
-	color: #9ca3af;
-	margin-bottom: 1rem;
+	color: var(--text-muted);
+	margin-bottom: var(--spacing-sm);
 }
 
 .project-tech-list {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.5rem;
-	margin-bottom: 1rem;
+	gap: var(--spacing-xs);
+	margin-bottom: var(--spacing-sm);
 }
 
 .project-tech-tag {
-	padding: 0.25rem 0.75rem;
-	font-size: 0.875rem;
-	background-color: #1f2937;
-	border-radius: 9999px;
-	color: #d1d5db;
+	padding: var(--spacing-xs) var(--spacing-sm);
+	font-size: var(--text-xs);
+	background-color: var(--background-card);
+	border-radius: var(--radius-full);
+	color: var(--text-secondary);
 }
 
 .project-links {
 	display: flex;
-	gap: 1rem;
+	gap: var(--spacing-sm);
 }
 
 .project-link {
-	color: #9ca3af;
+	color: var(--text-muted);
 	text-decoration: none;
-	transition: color 0.2s ease;
+	transition: color var(--transition-fast);
 }
 
 .project-link:hover {
-	color: #10b981;
+	color: var(--primary-color);
 }
