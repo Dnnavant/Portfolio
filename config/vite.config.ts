@@ -18,14 +18,14 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client/src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@server": path.resolve(import.meta.dirname, "server"),
+      "@": path.resolve(__dirname, "../src"),
+      "@shared": path.resolve(__dirname, "../src/shared"),
+      "@server": path.resolve(__dirname, "../src/server"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+  root: path.resolve(__dirname, "../src/server/public"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "../dist/public"),
     emptyOutDir: true,
   },
 });
