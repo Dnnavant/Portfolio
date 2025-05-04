@@ -1,40 +1,34 @@
-import { db } from '../src/server/config/database';
-import { admins } from '../src/shared/schema/admin';
+import { db } from '@server/db';
+import { users } from '@shared/schema/user';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 
 // Load environment variables
 dotenv.config();
 
-async function createAdmin() {
-  const username = 'admin';
-  const password = 'admin123'; // You should change this password
+console.log('Database URL:', process.env.DATABASE_URL);
 
+async function createAdminUser() {
+  const username = 'admin';
+  const password = 'admin123'; // You should change this in production
+  
   try {
     // Hash the password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-
-    // Insert admin user
-    const [admin] = await db.insert(admins).values({
+    const saltRounds = 10;
+    const passwordHash = await bcrypt.hash(password, saltRounds);
+    
+    // Insert the admin user
+    await db.insert(users).values({
       username,
-      password: hashedPassword,
-    }).returning();
-
-    console.log('Admin user created successfully:', {
-      id: admin.id,
-      username: admin.username,
-      createdAt: admin.createdAt
+      password: passwordHash
     });
-
-    console.log('\nUse these credentials to log in:');
-    console.log(`Username: ${username}`);
-    console.log(`Password: ${password}`);
+    
+    console.log('Admin user created successfully');
   } catch (error) {
     console.error('Error creating admin user:', error);
   } finally {
-    process.exit();
+    process.exit(0);
   }
 }
 
-createAdmin(); 
+createAdminUser(); 
