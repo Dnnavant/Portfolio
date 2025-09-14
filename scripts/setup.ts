@@ -14,7 +14,7 @@ async function setupWebsite() {
     if (!existsSync('.env')) {
       console.log('📝 Creating .env file...');
       const envContent = `NODE_ENV=development
-PORT=3000
+PORT=3001
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/portfolio
 JWT_SECRET=your-secret-key-here`;
       
@@ -48,8 +48,8 @@ JWT_SECRET=your-secret-key-here`;
     console.log('🌐 Starting the server...\n');
     console.log('📋 Website Information:');
     console.log('----------------------');
-    console.log('Frontend: http://localhost:3000');
-    console.log('Admin Dashboard: http://localhost:3000/admin-8a91b3f7');
+    console.log('Frontend: http://localhost:3001');
+    console.log('Admin Dashboard: http://localhost:3001/admin-8a91b3f7');
     console.log('Admin Credentials:');
     console.log('- Username: admin');
     console.log('- Password: admin123');

@@ -1,4 +1,4 @@
-Static Portfolio Website Checking update sept 14th
+Static Portfolio Website
 A responsive, modern portfolio website built with HTML, CSS, and vanilla JavaScript to showcase web development skills.
 
 Features
