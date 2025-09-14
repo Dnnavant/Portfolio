@@ -3,9 +3,19 @@
 // In development, we plug Vite in as middleware so you do NOT need a separate dev server.
 // In production (or if Vite isn't present), we serve the static build from client/dist.
 
+// Load environment variables from a .env file (beginner friendly)
+// You can create a file named ".env" in the project root and add SMTP settings there.
+// Example:
+//   SMTP_HOST=smtp.gmail.com
+//   SMTP_PORT=587
+//   SMTP_USER=your@gmail.com
+//   SMTP_PASS=your_app_password
+//   TO_EMAIL=Dnnavant@gmail.com
+import 'dotenv/config'
 import express from 'express'
 import path from 'node:path'
 import fs from 'node:fs'
+import nodemailer from 'nodemailer'
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -28,8 +38,59 @@ async function start() {
         appType: 'spa'
       })
 
+      // Parse JSON bodies BEFORE routes (so we can read req.body for /contact)
+      app.use(express.json())
+
       // Let Express use Vite's middlewares (serves assets + does hot reload)
       app.use(viteServer.middlewares)
+
+      // Minimal email endpoint. The client will POST here when the form is submitted.
+      // It forwards messages to your email using SMTP settings from .env
+      app.post('/contact', async (req, res) => {
+        try {
+          const { name, email, message, requestResume } = req.body || {}
+
+          // Very simple validation for beginners
+          if (!name || !email || !message) {
+            return res.status(400).json({ ok: false, error: 'Please fill in name, email, and message.' })
+          }
+
+          // Read SMTP settings from environment variables
+          const host = process.env.SMTP_HOST || 'smtp.gmail.com'
+          const port = Number(process.env.SMTP_PORT || 587)
+          const user = process.env.SMTP_USER
+          const pass = process.env.SMTP_PASS
+          const to = process.env.TO_EMAIL || 'Dnnavant@gmail.com'
+
+          // If SMTP credentials are missing, we log and still return success (so the form feels responsive)
+          if (!user || !pass) {
+            console.warn('[Email not sent] Missing SMTP_USER/SMTP_PASS. Message details:', { name, email, message, requestResume })
+            return res.json({ ok: true, sent: false, note: 'Email service not configured. Message logged on server.' })
+          }
+
+          // Create the transporter (this connects to your mail provider)
+          const transporter = nodemailer.createTransport({ host, port, secure: port === 465, auth: { user, pass } })
+
+          // Build the email content
+          const subject = requestResume
+            ? `Portfolio Contact (Resume Requested) — ${name}`
+            : `Portfolio Contact — ${name}`
+
+          const text = `From: ${name} <${email}>
+Requested Resume: ${requestResume ? 'Yes' : 'No'}
+
+Message:
+${message}
+`
+
+          // Send the email
+          await transporter.sendMail({ from: user, to, subject, text })
+          return res.json({ ok: true, sent: true })
+        } catch (err) {
+          console.error('Failed to send email:', err)
+          return res.status(500).json({ ok: false, error: 'Failed to send email.' })
+        }
+      })
 
       // All other routes return the transformed index.html (so React Router would work too)
       app.get('*', async (req, res, next) => {
@@ -51,6 +112,46 @@ async function start() {
 
   // Production/static fallback: serve built files from client/dist
   if (!usedVite) {
+    // Parse JSON for /contact in production too
+    app.use(express.json())
+
+    // Email endpoint also available in production
+    app.post('/contact', async (req, res) => {
+      try {
+        const { name, email, message, requestResume } = req.body || {}
+        if (!name || !email || !message) {
+          return res.status(400).json({ ok: false, error: 'Please fill in name, email, and message.' })
+        }
+
+        const host = process.env.SMTP_HOST || 'smtp.gmail.com'
+        const port = Number(process.env.SMTP_PORT || 587)
+        const user = process.env.SMTP_USER
+        const pass = process.env.SMTP_PASS
+        const to = process.env.TO_EMAIL || 'Dnnavant@gmail.com'
+
+        if (!user || !pass) {
+          console.warn('[Email not sent] Missing SMTP_USER/SMTP_PASS. Message details:', { name, email, message, requestResume })
+          return res.json({ ok: true, sent: false, note: 'Email service not configured. Message logged on server.' })
+        }
+
+        const transporter = nodemailer.createTransport({ host, port, secure: port === 465, auth: { user, pass } })
+        const subject = requestResume
+          ? `Portfolio Contact (Resume Requested) — ${name}`
+          : `Portfolio Contact — ${name}`
+        const text = `From: ${name} <${email}>
+Requested Resume: ${requestResume ? 'Yes' : 'No'}
+
+Message:
+${message}
+`
+        await transporter.sendMail({ from: user, to, subject, text })
+        return res.json({ ok: true, sent: true })
+      } catch (err) {
+        console.error('Failed to send email:', err)
+        return res.status(500).json({ ok: false, error: 'Failed to send email.' })
+      }
+    })
+
     const distDir = path.resolve(process.cwd(), 'client', 'dist')
     const indexFile = path.join(distDir, 'index.html')
     if (fs.existsSync(indexFile)) {
@@ -73,4 +174,3 @@ async function start() {
 }
 
 start()
-

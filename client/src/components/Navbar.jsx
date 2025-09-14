@@ -42,7 +42,8 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'navbar--solid' : 'navbar--clear'}`}>
       <nav className="nav">
         {/* Logo: clicking it scrolls to the hero section */}
-        <a href="#home" className="logo">DA Development<span className="accent">.</span></a>
+        {/* Brand name: keep "DA Development" without a trailing dot */}
+        <a href="#home" className="logo">DA Development</a>
 
         {/* Desktop links */}
         <div className="nav-links">
@@ -72,4 +73,3 @@ export default function Navbar() {
     </header>
   )
 }
-

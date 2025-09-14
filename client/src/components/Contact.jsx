@@ -9,15 +9,37 @@ export default function Contact() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  // If someone wants a resume, they can tick this box. You will approve and send a link later.
+  const [requestResume, setRequestResume] = useState(false)
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault()
-    alert('Thanks for reaching out! I will get back to you soon.')
-    // Clear the form so it feels responsive
-    setName('')
-    setEmail('')
-    setMessage('')
-    // NOTE: Later you can send these values to a backend or use EmailJS.
+    try {
+      // Send the form data to our single server on port 3001.
+      // The server forwards it to your email using SMTP (see server/index.js for details).
+      const res = await fetch('/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, requestResume })
+      })
+      const data = await res.json()
+      if (data.ok) {
+        if (requestResume) {
+          alert("Thanks! I'll review your request and share a resume link after approval.")
+        } else {
+          alert('Thanks for reaching out! I will get back to you soon.')
+        }
+        setName('')
+        setEmail('')
+        setMessage('')
+        setRequestResume(false)
+      } else {
+        alert(data.error || 'There was an issue sending your message.')
+      }
+    } catch (err) {
+      console.error('Contact send failed:', err)
+      alert('There was a network problem. Please try again later.')
+    }
   }
 
   return (
@@ -47,13 +69,12 @@ export default function Contact() {
                */}
             </div>
 
-            {/* Download Resume button. Replace the href with your actual PDF later. */}
-            <div className="resume-box">
-              <a href="#" className="btn btn-secondary" download>
-                Download Resume
-              </a>
-              {/* TODO: Replace href="#" with something like "/assets/resume.pdf" when you add the file. */}
-            </div>
+            {/*
+              Resume policy:
+              We do NOT show a download button here. Instead, the user can
+              request a resume in the form (checkbox). You will approve and
+              send a download link later.
+            */}
           </div>
 
           {/* Right side: the simple form */}
@@ -67,6 +88,12 @@ export default function Contact() {
             <label className="label">Message</label>
             <textarea rows="6" className="input" value={message} onChange={(e) => setMessage(e.target.value)} required />
 
+            {/* Checkbox to request a resume. This just sets a flag so you know the person asked for it. */}
+            <label className="label" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <input type="checkbox" checked={requestResume} onChange={(e) => setRequestResume(e.target.checked)} />
+              Request resume (I will share a download link after approval)
+            </label>
+
             <button type="submit" className="btn btn-primary btn-block">Send Message</button>
           </form>
         </div>
@@ -74,4 +101,3 @@ export default function Contact() {
     </section>
   )
 }
-
