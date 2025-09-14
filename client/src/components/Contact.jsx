@@ -1,6 +1,7 @@
-// Contact.jsx
-// Contact section with quick contact info, social links, and a form.
-// The form posts to the Express API at /api/contact via the Vite proxy.
+// Contact.jsx (beginner-friendly)
+// Contact section with quick info, social links, and a simple form.
+// The form submits to the backend at /api/contact. During development,
+// Vite proxies that to http://localhost:3001 so there are no CORS issues.
 
 import React, { useState } from 'react'
 
@@ -119,4 +120,3 @@ export default function Contact() {
     </section>
   )
 }
-

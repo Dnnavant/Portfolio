@@ -1,14 +1,14 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { Pool } from 'pg';
-import env from './environment';
+// database.ts (beginner-friendly)
+// Connects to PostgreSQL and gives us a simple "db" object for queries.
+import { drizzle } from 'drizzle-orm/node-postgres'
+import { Pool } from 'pg'
+import env from './environment'
 
-// Create PostgreSQL connection pool
-const pool = new Pool({
-  connectionString: env.DATABASE_URL,
-});
+// Create a connection pool using the DATABASE_URL from .env
+const pool = new Pool({ connectionString: env.DATABASE_URL })
 
-// Create Drizzle ORM instance
-export const db = drizzle(pool);
+// Create Drizzle ORM instance (this is what we use in controllers)
+export const db = drizzle(pool)
 
-// Export pool for direct database access if needed
-export { pool }; 
+// Export the pool too (handy if you need a raw client later)
+export { pool }

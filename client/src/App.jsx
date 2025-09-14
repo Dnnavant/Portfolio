@@ -1,6 +1,9 @@
-// App.jsx
-// This file composes all the page sections together (Navbar, Hero, About, Projects, Contact, Footer)
-// so the site reads top-to-bottom like the original static HTML.
+// App.jsx (beginner-friendly)
+// This file puts all the page sections together:
+// 1) Navbar at the top
+// 2) Hero (landing section)
+// 3) About, Projects, Contact
+// 4) Footer at the bottom
 
 import React from 'react'
 import Navbar from './components/Navbar.jsx'
@@ -30,4 +33,3 @@ export default function App() {
     </div>
   )
 }
-

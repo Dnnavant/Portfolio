@@ -1,8 +1,9 @@
-// Navbar.jsx
-// Top navigation bar with logo and section links.
-// Features:
-// - Changes background when you scroll (like the original)
-// - Collapsible mobile menu on small screens
+// Navbar.jsx (beginner-friendly)
+// A simple top navigation bar with:
+// - A logo that scrolls to the top
+// - Links to page sections (HOME, ABOUT, PROJECTS, CONTACT)
+// - A hamburger button for mobile screens
+// - When you scroll down a bit, the background turns solid
 
 import React, { useEffect, useState } from 'react'
 
@@ -31,7 +32,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Desktop menu */}
+        {/* Desktop menu (hidden on small screens) */}
         <div className="hidden md:flex gap-10">
           {['home', 'about', 'projects', 'contact'].map((id) => (
             <a
@@ -72,4 +73,3 @@ export default function Navbar() {
     </header>
   )
 }
-

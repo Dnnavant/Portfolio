@@ -1,6 +1,7 @@
-// Projects.jsx
-// A responsive grid of project cards. Each card has an image, title, description,
-// and small tech tags. We keep a subtle hover lift animation like the original.
+// Projects.jsx (beginner-friendly)
+// A simple grid of project cards.
+// - We keep the data in a plain JavaScript array called "projects".
+// - We use Array.map() to turn each project into a small card component.
 
 import React from 'react'
 
@@ -67,4 +68,3 @@ export default function Projects() {
     </section>
   )
 }
-

@@ -1,8 +1,11 @@
-import { Router } from 'express';
-import { handleContact } from '../controllers/contact';
+// contact.ts (beginner-friendly)
+// Defines routes under /api/contact
+import { Router } from 'express'
+import { handleContact } from '../controllers/contact'
 
-const router = Router();
+const router = Router()
 
-router.post('/', handleContact);
+// POST /api/contact -> save a new contact message
+router.post('/', handleContact)
 
-export default router; 
+export default router
