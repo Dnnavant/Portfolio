@@ -1,38 +1,17 @@
 {
-  "name": "portfolio",
+  "name": "beginner-portfolio",
   "version": "1.0.0",
-  "description": "Personal portfolio website",
+  "description": "Single-server React (Vite) portfolio with Express",
+  "type": "module",
   "scripts": {
-    "dev": "tsx src/server/index.ts",
-    "build": "tsc",
-    "start": "node dist/server/index.js",
-    "client:dev": "npm --prefix client run dev",
-    "client:build": "npm --prefix client run build",
-    "client:preview": "npm --prefix client run preview",
-    "migrate": "tsx scripts/migrate.ts",
-    "create-admin": "tsx scripts/create-admin.ts",
-    "seed-contacts": "tsx scripts/seed-contacts.ts",
-    "setup": "tsx scripts/setup.ts"
+    "dev": "npm install --silent || true; npm --prefix client install --silent || true; node server/index.js",
+    "build": "npm --prefix client run build",
+    "start": "node server/index.js"
   },
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.29.3",
-    "express": "^4.18.3",
-    "jsonwebtoken": "^9.0.2",
-    "pg": "^8.11.3",
-    "zod": "^3.22.4"
+    "express": "^4.18.3"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/jsonwebtoken": "^9.0.6",
-    "@types/node": "^20.11.24",
-    "@types/pg": "^8.11.2",
-    "drizzle-kit": "^0.20.14",
-    "tsx": "^4.7.1",
-    "typescript": "^5.3.3"
+    "vite": "^5.4.10"
   }
 }

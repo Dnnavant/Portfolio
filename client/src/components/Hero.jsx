@@ -1,43 +1,36 @@
-// Hero.jsx
-// Large landing section with background image, overlay, heading, subheading, and CTA button.
-// It mirrors the original design using Tailwind utility classes.
+// client/src/components/Hero.jsx
+// The big landing section with a background image, title, subtitle, and a button.
+// We place a dark overlay over the image so white text is readable.
 
 import React from 'react'
 
 export default function Hero() {
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-zinc-900">
-      {/* Dark overlay for contrast over the background image */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
+    <section id="home" className="hero">
+      {/* The overlay sits above the image (darkens the image a bit) */}
+      <div className="hero-overlay"></div>
 
-      {/* Background image */}
-      <div className="absolute inset-0 -z-0">
-        <img
-          className="w-full h-full object-cover object-center"
-          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2072&q=80"
-          alt="Coding background"
-        />
+      {/* Background image (laptop workspace like your screenshot) */}
+      <img
+        className="hero-bg"
+        src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=2072&auto=format&fit=crop"
+        alt="Laptop workspace background"
+      />
+
+      {/* Centered text and button */}
+      <div className="hero-content">
+        {/* Your name */}
+        <h1 className="hero-title">Donnie Avant</h1>
+        {/* One-line tagline under your name */}
+        <h2 className="hero-subtitle">Designing something that fits your vision</h2>
+        {/* Button that scrolls down to the projects section */}
+        <a href="#projects" className="btn btn-primary">View My Work</a>
       </div>
 
-      {/* Center content */}
-      <div className="relative z-20 text-center max-w-3xl px-6">
-        <h1 className="text-white font-display font-bold leading-tight text-4xl md:text-5xl lg:text-6xl mb-4">
-          John Doe
-        </h1>
-        <h2 className="text-white text-base md:text-lg lg:text-xl font-normal mb-8">
-          Front-End Developer crafting beautiful & responsive web experiences
-        </h2>
-        <a href="#projects" className="inline-block font-semibold bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-hover transition-transform hover:-translate-y-0.5 shadow">
-          View My Work
-        </a>
-      </div>
-
-      {/* Scroll down indicator */}
-      <div className="absolute bottom-8 inset-x-0 z-20 text-center text-white">
-        <a href="#about" className="inline-block">
-          <span className="block mb-2">Scroll Down</span>
-          <i className="fas fa-chevron-down animate-bounce" />
-        </a>
+      {/* Small scroll hint at the bottom */}
+      <div className="scroll-hint">
+        <span>Scroll Down</span>
+        <i className="fas fa-chevron-down"></i>
       </div>
     </section>
   )

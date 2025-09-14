@@ -1,14 +1,14 @@
-// Entry point for the React application
-// - Imports Tailwind styles
-// - Renders the App component into the #root element in index.html
+// client/src/main.jsx
+// This is the entry point for our React app.
+// It selects the <div id="root"> from index.html and renders the <App /> component into it.
 
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
+import './styles.css'
 
-const rootEl = document.getElementById('root')
-createRoot(rootEl).render(
+const root = createRoot(document.getElementById('root'))
+root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>

@@ -1,70 +1,69 @@
-// Navbar.jsx (beginner-friendly)
-// A simple top navigation bar with:
-// - A logo that scrolls to the top
-// - Links to page sections (HOME, ABOUT, PROJECTS, CONTACT)
-// - A hamburger button for mobile screens
-// - When you scroll down a bit, the background turns solid
+// client/src/components/Navbar.jsx
+// A very simple navigation bar at the top of the page.
+// It stays transparent over the hero image, and turns solid when you scroll.
+// We also underline the currently active section (HOME, ABOUT, PROJECTS, CONTACT).
 
 import React, { useEffect, useState } from 'react'
 
 export default function Navbar() {
-  // Track whether the page has scrolled past a threshold
+  // "scrolled" starts as false. When the page scrolls down a bit, we make it true.
   const [scrolled, setScrolled] = useState(false)
-  // Track whether the mobile menu is open
+  // "active" remembers which section is currently in view.
+  const [active, setActive] = useState('home')
+  // This controls whether the mobile menu is open.
   const [open, setOpen] = useState(false)
 
+  // When the user scrolls, we check how far they scrolled to switch background and active item
   useEffect(() => {
     function onScroll() {
       setScrolled(window.scrollY > 50)
+
+      // Find which section is near the top
+      const ids = ['home', 'about', 'projects', 'contact']
+      let current = 'home'
+      for (const id of ids) {
+        const el = document.getElementById(id)
+        if (!el) continue
+        const rect = el.getBoundingClientRect()
+        if (rect.top <= 120) current = id
+      }
+      setActive(current)
     }
-    onScroll() // run once on mount to set initial state
+
+    onScroll() // run once when the component mounts
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  return (
-    <header id="navbar" className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? 'bg-white shadow' : 'bg-transparent'}`}>
-      <nav className="mx-auto max-w-[1200px] flex items-center justify-between px-6 py-4">
-        {/* Logo - click scrolls to the hero section */}
-        <div className="text-xl font-bold font-display">
-          <a href="#home" className={scrolled ? 'text-foreground' : 'text-white'}>
-            DA Development<span className="text-primary">.</span>
-          </a>
-        </div>
+  // We build the nav links from an array to avoid repeating code
+  const links = ['home', 'about', 'projects', 'contact']
 
-        {/* Desktop menu (hidden on small screens) */}
-        <div className="hidden md:flex gap-10">
-          {['home', 'about', 'projects', 'contact'].map((id) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              className={`tracking-wide text-sm font-medium relative ${scrolled ? 'text-foreground' : 'text-white'} hover:text-primary`}
-            >
+  return (
+    <header className={`navbar ${scrolled ? 'navbar--solid' : 'navbar--clear'}`}>
+      <nav className="nav">
+        {/* Logo: clicking it scrolls to the hero section */}
+        <a href="#home" className="logo">DA Development<span className="accent">.</span></a>
+
+        {/* Desktop links */}
+        <div className="nav-links">
+          {links.map((id) => (
+            <a key={id} href={`#${id}`} className={`nav-link ${active === id ? 'active' : ''}`}>
               {id.toUpperCase()}
             </a>
           ))}
         </div>
 
-        {/* Mobile menu button */}
-        <button
-          aria-label="Toggle Menu"
-          className={`md:hidden text-2xl ${scrolled ? 'text-foreground' : 'text-white'}`}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <i className="fas fa-bars" />
+        {/* Mobile menu button (hamburger) */}
+        <button className="menu-btn" onClick={() => setOpen((v) => !v)} aria-label="Toggle Menu">
+          <i className="fas fa-bars"></i>
         </button>
       </nav>
 
-      {/* Mobile dropdown menu (only visible on small screens) */}
+      {/* Mobile dropdown menu (only shows when open is true) */}
       {open && (
-        <div className="md:hidden bg-white shadow">
-          {['home', 'about', 'projects', 'contact'].map((id) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              onClick={() => setOpen(false)}
-              className="block px-6 py-4 border-b border-border hover:text-primary"
-            >
+        <div className="mobile-menu">
+          {links.map((id) => (
+            <a key={id} href={`#${id}`} onClick={() => setOpen(false)} className="mobile-link">
               {id.toUpperCase()}
             </a>
           ))}
@@ -73,3 +72,4 @@ export default function Navbar() {
     </header>
   )
 }
+

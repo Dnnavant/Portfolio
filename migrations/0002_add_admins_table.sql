@@ -1,7 +1,0 @@
--- Create admins table
-CREATE TABLE IF NOT EXISTS admins (
-    id SERIAL PRIMARY KEY,
-    username TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
-); 
